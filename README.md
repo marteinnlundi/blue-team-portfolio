@@ -20,9 +20,10 @@ blue team security portfolio.
 
 ```text
 [ebpf-telemetry] ----\
-                      -> [logpipe] -> normalized events -> [sigma-lite] -> alerts -> [caseboard]
-[logs/sysmon/auth] --/                                 -> [auth-anom]  -> alerts -> [caseboard]
-                                                        -> [ioc-feed]   -> alerts -> [caseboard]
+                      -> [logpipe] -> normalized events
+                         -> [sigma-lite] -> alerts -> [caseboard]
+[logs/sysmon/auth] --/  -> [auth-anom] -> alerts -> [caseboard]
+                         -> [ioc-feed] -> alerts -> [caseboard]
 
 [ir-triage] -> evidence bundle -> attach to caseboard
 ```
@@ -57,4 +58,3 @@ blue team security portfolio.
 ## License
 
 - [LICENSE](LICENSE)
-
