@@ -1,0 +1,8 @@
+name: Feature
+description: Propose a new standard or document
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
