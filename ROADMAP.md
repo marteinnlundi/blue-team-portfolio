@@ -3,11 +3,13 @@
 This roadmap builds one working end-to-end path early, then expands coverage.
 
 ## Phase 0 — Portfolio foundation (this repo)
+
 - [ ] Add docs, schemas, templates
 - [ ] Enable markdown lint + link check CI
 - [ ] Keep REPOS.md updated as repos are created
 
 ## Phase 1 — First end-to-end detections path
+
 Goal: normalized events -> rule detections -> tested in CI.
 
 - [ ] Create logpipe (MVP)
@@ -21,9 +23,11 @@ Goal: normalized events -> rule detections -> tested in CI.
   - [ ] GitHub Action template that runs rule tests
 
 Exit criteria:
+
 - One command can run: generate sample events -> normalize -> run detections -> produce alerts.
 
 ## Phase 2 — Telemetry + identity detections
+
 - [ ] Create ebpf-telemetry (MVP)
   - [ ] exec events
   - [ ] connect events
@@ -33,6 +37,7 @@ Exit criteria:
   - [ ] impossible travel (optional if you have geo data)
 
 ## Phase 3 — Intel + workflow
+
 - [ ] Create ioc-feed (MVP)
   - [ ] ingest one feed format
   - [ ] dedupe and expiry
@@ -43,6 +48,7 @@ Exit criteria:
   - [ ] audit trail for edits
 
 ## Phase 4 — Incident response
+
 - [ ] Create ir-triage (MVP)
   - [ ] collect artifacts on Linux
   - [ ] produce evidence bundle
