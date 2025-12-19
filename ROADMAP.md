@@ -24,7 +24,8 @@ Goal: normalized events -> rule detections -> tested in CI.
 
 Exit criteria:
 
-- One command can run: generate sample events -> normalize -> run detections -> produce alerts.
+- One command can run:
+  generate sample events -> normalize -> run detections -> produce alerts.
 
 ## Phase 2 — Telemetry + identity detections
 

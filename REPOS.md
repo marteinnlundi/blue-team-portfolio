@@ -10,7 +10,7 @@ Replace <YOUR_GITHUB_USERNAME> after you create each repo.
 | sigma-lite | YAML rules over normalized events | Python, YAML | Planned |
 | auth-anom | Auth anomaly detections | Python | Planned |
 | ir-triage | Host triage CLI, outputs an evidence bundle | Rust | Planned |
-| ebpf-telemetry | Linux endpoint telemetry (exec/connect) | C (eBPF), Go | Planned |
+| ebpf-telemetry | Linux endpoint telemetry | C (eBPF), Go | Planned |
 | ioc-feed | IOC ingest, store, and match | TypeScript, SQL | Planned |
 | caseboard | Case UI for alerts and evidence | TypeScript | Planned |
 | detections-ci | Rule test harness + GitHub Action | Python, YAML | Planned |
