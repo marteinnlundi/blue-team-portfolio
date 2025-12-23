@@ -18,14 +18,45 @@ blue team security portfolio.
 
 ## Architecture
 
-```text
-[ebpf-telemetry] ----\
-                      -> [logpipe] -> normalized events
-                         -> [sigma-lite] -> alerts -> [caseboard]
-[logs/sysmon/auth] --/  -> [auth-anom] -> alerts -> [caseboard]
-                         -> [ioc-feed] -> alerts -> [caseboard]
+```mermaid
+flowchart LR
+  %% Sources
+  eBPF[ebpf-telemetry]
+  Logs[logs/sysmon/auth]
 
-[ir-triage] -> evidence bundle -> attach to caseboard
+  %% Pipeline + outputs
+  Logpipe[logpipe]
+  Norm[(normalized events)]
+
+  %% Detections + case mgmt
+  Sigma[sigma-lite]
+  Auth[auth-anom]
+  IOC[ioc-feed]
+  Case[caseboard]
+
+  %% IR workflow
+  IR[ir-triage]
+  Bundle[(evidence bundle)]
+
+  %% Ingest
+  eBPF --> Logpipe
+  Logs --> Logpipe
+
+  %% Normalization output
+  Logpipe --> Norm
+
+  %% Fan-out detections
+  Logpipe --> Sigma
+  Logpipe --> Auth
+  Logpipe --> IOC
+
+  %% Alerts into caseboard
+  Sigma -->|alerts| Case
+  Auth -->|alerts| Case
+  IOC -->|alerts| Case
+
+  %% Evidence attachment path
+  IR --> Bundle -->|attach| Case
 ```
 
 ## Repositories
