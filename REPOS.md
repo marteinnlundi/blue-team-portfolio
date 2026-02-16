@@ -1,17 +1,17 @@
 # Repositories
 
-## Core tools (planned)
+## Core tools
 
 | Repo | Purpose | Main languages | Status |
 | --- | --- | --- | --- |
-| logpipe | Ingest + normalize logs to the event schema | Go | Planned |
-| sigma-lite | YAML rules over normalized events | Python, YAML | Planned |
-| auth-anom | Auth anomaly detections | Python | Planned |
-| ir-triage | Host triage CLI, outputs an evidence bundle | Rust | Planned |
-| ebpf-telemetry | Linux endpoint telemetry | C (eBPF), Go | Planned |
+| logpipe | Ingest + normalize logs to the event schema | Go | MVP |
+| sigma-lite | YAML rules over normalized events | Python, YAML | MVP |
+| detections-ci | Rule test harness + GitHub Action | Python, YAML | MVP |
+| auth-anom | Auth anomaly detections (brute force, spray, impossible travel) | Python | MVP |
+| ebpf-telemetry | Linux endpoint telemetry (exec, connect) | C (eBPF), Go | MVP |
 | ioc-feed | IOC ingest, store, and match | TypeScript, SQL | Planned |
 | caseboard | Case UI for alerts and evidence | TypeScript | Planned |
-| detections-ci | Rule test harness + GitHub Action | Python, YAML | Planned |
+| ir-triage | Host triage CLI, outputs an evidence bundle | Rust | Planned |
 
 ## Links
 
