@@ -1,56 +1,45 @@
 # Roadmap
 
-This roadmap builds one working end-to-end path early, then expands coverage.
+## Phase 0 — Portfolio foundation ✅
 
-## Phase 0 — Portfolio foundation (this repo)
+- [x] Standards: `event_schema.md`, `alert_schema.md`, `logging_style.md`, `naming_conventions.md`
+- [x] Markdown lint + link check CI
+- [x] `REPOS.md`, `ARCHITECTURE.md`, issue/PR templates
 
-- [ ] Add docs, schemas, templates
-- [ ] Enable markdown lint + link check CI
-- [ ] Keep REPOS.md updated as repos are created
+## Phase 1 — First end-to-end detections path ✅
 
-## Phase 1 — First end-to-end detections path
+Goal: normalized events → rule detections → tested in CI.
 
-Goal: normalized events -> rule detections -> tested in CI.
+- [x] **logpipe** — parses Linux auth logs (Syslog) and JSON; extracts `user.name`, `network.src_ip`; outputs JSONL events
+- [x] **sigma-lite** — YAML rule engine; `auth-001` rule detects auth failures; rule tests
+- [x] **detections-ci** — synthetic event generator (`normal`, `brute_force`, `password_spray`, `impossible_travel`); 6 full-pipeline integration tests; GitHub Actions CI
 
-- [ ] Create logpipe (MVP)
-  - [ ] Parse at least 2 sources (example: Linux auth log + JSON input)
-  - [ ] Output JSONL events using standards/event_schema.md
-- [ ] Create sigma-lite (MVP)
-  - [ ] YAML rule format
-  - [ ] Rule tests (expected alert / no alert)
-- [ ] Create detections-ci (MVP)
-  - [ ] Synthetic events generator
-  - [ ] GitHub Action template that runs rule tests
+Exit criteria met:
 
-Exit criteria:
+```bash
+python3 generate.py --scenario brute_force --count 10 \
+  | ../logpipe/logpipe \
+  | python3 ../sigma-lite/main.py
+```
 
-- One command can run:
-  generate sample events -> normalize -> run detections -> produce alerts.
+## Phase 2 — Telemetry + identity detections ✅
 
-## Phase 2 — Telemetry + identity detections
+- [x] **ebpf-telemetry** — eBPF probes for `execve` and `tcp_v4_connect`; outputs JSONL events
+- [x] **auth-anom** — stateful detections: brute force, password spray, impossible travel (mock GeoIP)
 
-- [ ] Create ebpf-telemetry (MVP)
-  - [ ] exec events
-  - [ ] connect events
-- [ ] Create auth-anom (MVP)
-  - [ ] password spray detection
-  - [ ] brute force detection
-  - [ ] impossible travel (optional if you have geo data)
+## Phase 3 — Intel + workflow ✅
 
-## Phase 3 — Intel + workflow
+- [x] **ioc-feed** — STIX 2.1 feed ingestion; SQLite store with dedup + expiry; IP and domain matching; alerts per `alert_schema.md`; CLI (`ingest`, `match`, `purge`); 23 tests
+- [x] **caseboard** — Express REST API; case lifecycle (open → investigating → resolved → closed); timeline with alerts, notes, and evidence; JSON export; HTML/CSS browser UI; 12 tests
 
-- [ ] Create ioc-feed (MVP)
-  - [ ] ingest one feed format
-  - [ ] dedupe and expiry
-  - [ ] match against events
-- [ ] Create caseboard (MVP)
-  - [ ] ingest alerts
-  - [ ] case timeline and evidence attachments
-  - [ ] audit trail for edits
+## Phase 4 — Incident response ✅
 
-## Phase 4 — Incident response
+- [x] **ir-triage** — Linux collectors: processes, network connections, active sessions, auth events, systemd services, cron entries, log slices; SHA-256 integrity manifest; `report.json` bundle; 22 tests
 
-- [ ] Create ir-triage (MVP)
-  - [ ] collect artifacts on Linux
-  - [ ] produce evidence bundle
-  - [ ] attach to a caseboard case (manual upload is fine for MVP)
+## Next (Phase 5 ideas)
+
+- Connect ir-triage report upload directly to caseboard via CLI flag
+- Add more sigma-lite rules (privilege escalation, process injection patterns)
+- Real GeoIP lookup in auth-anom (MaxMind GeoLite2)
+- Grafana/OpenSearch dashboard consuming logpipe output
+- Multi-host Docker Compose demo
