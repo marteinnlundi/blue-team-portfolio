@@ -3,3 +3,36 @@
 *.swp
 *~
 .nvimlog
+.idea/
+.vscode/
+
+# Local env
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# Rust
+target/
+
+# Go / eBPF build outputs
+/tools/logpipe/logpipe
+/tools/ebpf-telemetry/ebpf-telemetry
+*.o
+
+# Runtime data
+*.db
+*.db-shm
+*.db-wal
+*.log
+demo/output/
+triage-output/

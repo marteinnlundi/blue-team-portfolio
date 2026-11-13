@@ -1,8 +1,10 @@
 name: Question
-description: Ask about structure or roadmap
+description: Ask about the design, the schemas or the roadmap
 labels: ["question"]
 body:
   - type: textarea
     id: question
     attributes:
       label: Question
+    validations:
+      required: true

@@ -1,0 +1,34 @@
+# One-command demo:  docker compose -f demo/docker-compose.yml up --build
+#
+#   caseboard  the case management UI, on http://localhost:3000
+#   pipeline   runs once: eventgen -> logpipe -> detections -> caseboard, then exits
+#
+# Reset with:  docker compose -f demo/docker-compose.yml down -v
+name: soc-in-a-box
+
+services:
+  caseboard:
+    build: ../tools/caseboard
+    ports:
+      # Loopback only: caseboard has no authentication.
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - caseboard-data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  pipeline:
+    build:
+      context: ..
+      dockerfile: demo/Dockerfile.pipeline
+    environment:
+      CASEBOARD_URL: http://caseboard:3000
+    depends_on:
+      caseboard:
+        condition: service_healthy
+
+volumes:
+  caseboard-data:

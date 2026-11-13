@@ -1,0 +1,16 @@
+id: "exec-002"
+title: "Reverse Shell Command Line"
+severity: "critical"
+description: "The command line matches a common reverse shell pattern (/dev/tcp redirect, nc -e, or mkfifo relay)."
+tags: ["attack.execution", "attack.t1059.004"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "process_start"
+  any:
+    - field: "process.command_line"
+      regex: '/dev/(tcp|udp)/\d'
+    - field: "process.command_line"
+      regex: '\b(nc|ncat|netcat)\b.*\s-(e|c)\s'
+    - field: "process.command_line"
+      regex: 'mkfifo\s.*\|\s*(nc|ncat|netcat)\b'

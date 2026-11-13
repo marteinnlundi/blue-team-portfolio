@@ -1,0 +1,15 @@
+config:
+  # Long lines are fine in tables, command examples and URLs.
+  MD013: false
+  # Table pipe alignment is cosmetic.
+  MD060: false
+  # The same sub-headings (Usage, Tests, ...) repeat across sections.
+  MD024:
+    siblings_only: true
+globs:
+  - "**/*.md"
+ignores:
+  - "**/node_modules/**"
+  - "**/target/**"
+  - "LICENSE"
+  - ".github/PULL_REQUEST_TEMPLATE.md"

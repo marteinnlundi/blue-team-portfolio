@@ -1,0 +1,1 @@
+{"event": {"time": "2026-02-16T12:00:00Z", "source": "ebpf", "kind": "network_connection"}, "host": {"name": "workstation-05"}, "severity": "low", "user": {"name": "alice"}, "process": {"name": "curl", "pid": 12345}, "network": {"src_ip": "192.168.1.10", "dst_ip": "93.184.216.34", "dst_port": 443, "protocol": "tcp"}}

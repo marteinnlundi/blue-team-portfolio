@@ -1,0 +1,63 @@
+{
+  "type": "bundle",
+  "id": "bundle--sample-soc-in-a-box",
+  "objects": [
+    {
+      "type": "indicator",
+      "id": "indicator--ip-c2-server",
+      "name": "Known C2 Server",
+      "description": "Confirmed C2 server used in APT campaign",
+      "pattern": "[ipv4-addr:value = '198.51.100.42']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-01T00:00:00Z",
+      "confidence": 90,
+      "labels": ["malicious-activity", "c2"]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--ip-scanner",
+      "name": "Port Scanner",
+      "description": "IP observed mass-scanning SSH port",
+      "pattern": "[ipv4-addr:value = '203.0.113.99']",
+      "pattern_type": "stix",
+      "valid_from": "2025-03-01T00:00:00Z",
+      "valid_until": "2099-01-01T00:00:00Z",
+      "confidence": 70,
+      "labels": ["scanning"]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--domain-phish",
+      "name": "Phishing Domain",
+      "description": "Credential-harvesting phishing site",
+      "pattern": "[domain-name:value = 'evil-login.example.net']",
+      "pattern_type": "stix",
+      "valid_from": "2025-02-01T00:00:00Z",
+      "confidence": 85,
+      "labels": ["phishing"]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--hash-malware",
+      "name": "Malware Sample",
+      "description": "Ransomware dropper SHA-256",
+      "pattern": "[file:hashes.SHA-256 = 'a3f1c2b4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef']",
+      "pattern_type": "stix",
+      "valid_from": "2025-01-15T00:00:00Z",
+      "confidence": 95,
+      "labels": ["malware", "ransomware"]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--ip-expired",
+      "name": "Expired IOC",
+      "description": "This IOC is already expired and should not match",
+      "pattern": "[ipv4-addr:value = '10.10.10.10']",
+      "pattern_type": "stix",
+      "valid_from": "2020-01-01T00:00:00Z",
+      "valid_until": "2020-06-01T00:00:00Z",
+      "confidence": 60,
+      "labels": []
+    }
+  ]
+}

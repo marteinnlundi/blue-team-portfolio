@@ -1,0 +1,11 @@
+id: "exec-001"
+title: "Download Piped to Shell"
+severity: "high"
+description: "A process downloaded content with curl or wget and piped it straight into a shell."
+tags: ["attack.execution", "attack.t1059.004", "attack.t1105"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "process_start"
+    - field: "process.command_line"
+      regex: '(curl|wget)\s.*\|\s*(sudo\s+)?(sh|bash|zsh|dash)\b'

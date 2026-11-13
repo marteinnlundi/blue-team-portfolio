@@ -1,8 +1,27 @@
 name: Bug
-description: Report a documentation or schema issue
+description: Something does not work as documented
 labels: ["bug"]
 body:
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options: [logpipe, sigma-lite, auth-anom, ioc-feed, caseboard, ir-triage, ebpf-telemetry, eventgen, demo, docs]
+    validations:
+      required: true
   - type: textarea
     id: problem
     attributes:
-      label: Problem
+      label: What happened
+      description: Include the command you ran, the input (synthetic data only) and the output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, kernel (for ebpf-telemetry) and language runtime versions.

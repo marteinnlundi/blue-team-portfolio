@@ -1,0 +1,8 @@
+{"event":{"time":"2026-02-16T12:00:00Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:01Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:02Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:03Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:04Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:05Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:06Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-02-16T12:00:07Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"network":{"src_ip":"192.168.1.66"}}
