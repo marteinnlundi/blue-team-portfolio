@@ -1,0 +1,13 @@
+id: "auth-002"
+title: "Direct Root Login over SSH"
+severity: "high"
+description: "A remote login as root succeeded. Root should not be reachable over SSH directly."
+tags: ["attack.initial_access", "attack.t1078.003"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "authentication_success"
+    - field: "user.name"
+      equals: "root"
+    - field: "process.name"
+      equals: "sshd"

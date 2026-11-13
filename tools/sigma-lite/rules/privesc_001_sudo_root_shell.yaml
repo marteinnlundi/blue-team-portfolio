@@ -1,0 +1,11 @@
+id: "privesc-001"
+title: "Interactive Root Shell via sudo"
+severity: "medium"
+description: "A user started an interactive shell through sudo instead of running a single command."
+tags: ["attack.privilege_escalation", "attack.t1548.003"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "privilege_escalation"
+    - field: "process.command_line"
+      regex: 'COMMAND=(/usr)?/bin/(su|sh|bash|zsh|dash)(\s|$)'

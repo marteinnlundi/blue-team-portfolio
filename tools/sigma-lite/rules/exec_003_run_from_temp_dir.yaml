@@ -1,0 +1,11 @@
+id: "exec-003"
+title: "Execution from World-Writable Directory"
+severity: "medium"
+description: "A binary or script was started from /tmp, /var/tmp or /dev/shm, a common staging location for malware."
+tags: ["attack.execution", "attack.defense_evasion"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "process_start"
+    - field: "process.command_line"
+      regex: '^(/tmp/|/var/tmp/|/dev/shm/)'

@@ -1,0 +1,11 @@
+soc-in-a-box
+
+Required Notice: Copyright (c) 2025-2026 Marteinn Lundi (https://github.com/marteinnlundi)
+
+This software is licensed under the PolyForm Noncommercial License 1.0.0.
+See the LICENSE file or https://polyformproject.org/licenses/noncommercial/1.0.0
+
+Exception: tools/ebpf-telemetry/bpf/telemetry.bpf.c is dual licensed under the
+MIT License or the GNU General Public License version 2, at your option. The
+Linux kernel only allows GPL-compatible eBPF programs to call the tracing
+helpers that file uses, so it cannot be offered under noncommercial-only terms.

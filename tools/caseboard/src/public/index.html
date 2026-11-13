@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caseboard</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Caseboard</h1>
+    <nav>
+      <button type="button" class="active" data-panel="alerts">Alerts Inbox</button>
+      <button type="button" data-panel="cases">Cases</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="error" role="alert"></div>
+
+    <section id="panel-alerts" class="panel active">
+      <h2>Alerts Inbox</h2>
+      <div id="alert-summary" class="summary"></div>
+      <div class="toolbar">
+        <label><input type="checkbox" id="untriaged-only" /> Untriaged only</label>
+        <input id="case-from-alerts-title" placeholder="Case title" maxlength="500" />
+        <button type="button" class="btn" id="create-case-from-selected">Create case from selected</button>
+      </div>
+      <table>
+        <thead><tr><th></th><th>Time</th><th>Title</th><th>Severity</th><th>Entity</th><th>Rule</th><th>Case</th></tr></thead>
+        <tbody id="alerts-body"></tbody>
+      </table>
+    </section>
+
+    <section id="panel-cases" class="panel">
+      <h2>Cases</h2>
+      <div class="toolbar">
+        <button type="button" class="btn" id="show-new-case">New Case</button>
+      </div>
+      <div id="new-case-form" class="form-card hidden">
+        <h3>New Case</h3>
+        <input id="nc-title" placeholder="Title" maxlength="500" />
+        <select id="nc-severity">
+          <option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="critical">Critical</option>
+        </select>
+        <div class="row">
+          <button type="button" class="btn" id="submit-new-case">Create</button>
+          <button type="button" class="btn btn-ghost" id="cancel-new-case">Cancel</button>
+        </div>
+      </div>
+      <div id="cases-list"></div>
+    </section>
+
+    <section id="panel-case-detail" class="panel">
+      <button type="button" class="back-link link" data-panel="cases">← Back to Cases</button>
+      <div id="case-detail"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.git
+**/node_modules
+**/dist
+**/target
+**/__pycache__
+**/.pytest_cache
+**/*.db
+**/*.o
+demo/output
+tools/logpipe/logpipe
+tools/ebpf-telemetry/ebpf-telemetry

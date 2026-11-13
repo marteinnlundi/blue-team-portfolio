@@ -1,0 +1,11 @@
+id: "persist-001"
+title: "Local Account Created"
+severity: "medium"
+description: "useradd or adduser was executed. Attackers create local accounts to keep access."
+tags: ["attack.persistence", "attack.t1136.001"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "process_start"
+    - field: "process.name"
+      in: ["useradd", "adduser"]

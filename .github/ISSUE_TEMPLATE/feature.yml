@@ -1,8 +1,16 @@
 name: Feature
-description: Propose a new standard or document
+description: Propose a new detection, collector or improvement
 labels: ["enhancement"]
 body:
   - type: textarea
     id: proposal
     attributes:
       label: Proposal
+      description: What should be added, and which tool does it belong to?
+    validations:
+      required: true
+  - type: textarea
+    id: schema
+    attributes:
+      label: Schema impact
+      description: Does this need new event or alert fields? See docs/standards.

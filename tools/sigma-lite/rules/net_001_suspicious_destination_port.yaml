@@ -1,0 +1,11 @@
+id: "net-001"
+title: "Outbound Connection to Suspicious Port"
+severity: "medium"
+description: "A process connected out to a port often used by default C2 and reverse shell listeners."
+tags: ["attack.command_and_control", "attack.t1571"]
+detection:
+  all:
+    - field: "event.kind"
+      equals: "network_connection"
+    - field: "network.dst_port"
+      in: [1337, 4444, 5555, 6666, 9001, 31337]

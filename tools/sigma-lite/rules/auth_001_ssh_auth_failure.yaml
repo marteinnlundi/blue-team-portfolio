@@ -1,0 +1,9 @@
+id: "auth-001"
+title: "SSH Authentication Failure"
+severity: "medium"
+description: "Detects failed SSH login attempts reported by syslog."
+tags: ["attack.credential_access", "attack.t1110"]
+detection:
+  condition:
+    field: "event.kind"
+    value: "authentication_failure"
