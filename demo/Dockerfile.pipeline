@@ -2,7 +2,7 @@
 # through logpipe and the three detection tools, and loads the alerts into
 # caseboard. Build context is the repository root.
 
-FROM golang:1.24-bookworm AS logpipe
+FROM golang:1.25-bookworm AS logpipe
 WORKDIR /src
 COPY tools/logpipe/ ./
 RUN CGO_ENABLED=0 go build -trimpath -o /out/logpipe ./cmd/logpipe
