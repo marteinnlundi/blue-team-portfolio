@@ -20,7 +20,7 @@ jobs:
       run:
         working-directory: tools/logpipe
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24"
@@ -38,7 +38,7 @@ jobs:
     name: sigma-lite + auth-anom (Python)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -66,7 +66,7 @@ jobs:
       run:
         working-directory: tools/${{ matrix.tool }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -87,7 +87,7 @@ jobs:
       run:
         working-directory: tools/ir-triage
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Format
         run: cargo fmt --check
       - name: Lint
@@ -106,7 +106,7 @@ jobs:
       run:
         working-directory: tools/ebpf-telemetry
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24"
@@ -138,7 +138,7 @@ jobs:
     name: Full pipeline
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24"
@@ -165,7 +165,7 @@ jobs:
     env:
       COMPOSE_FILE: demo/docker-compose.yml
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Start caseboard
         run: docker compose up --build --detach --wait caseboard
       - name: Run the pipeline
@@ -185,5 +185,5 @@ jobs:
     name: Markdown
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: DavidAnson/markdownlint-cli2-action@v19
